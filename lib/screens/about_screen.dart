@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_admob_example/constants/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -19,17 +20,19 @@ class AboutScreen extends StatelessWidget {
               onPressed: _launchGithub,
               child: Text('View Code'),
             ),
-          )
+          ),
+          Center(
+            child: ElevatedButton(
+              onPressed: _openMarket,
+              child: Text('Rate App'),
+            ),
+          ),
         ],
       ),
     );
   }
 
-  void _launchGithub() async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
+  void _launchGithub() => launch(_url);
 
-  void openMarket() {
-    launch(APP_URL);
-  }
+  void _openMarket() => launch(APP_URL);
 }
