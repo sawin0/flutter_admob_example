@@ -1,18 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_admob_example/ad_state.dart';
-import 'package:flutter_admob_example/screens/banner_ad_list_screen.dart';
-import 'package:flutter_admob_example/screens/banner_ad_screen.dart';
-import 'package:flutter_admob_example/screens/interstitial_ad_screen.dart';
-import 'package:flutter_admob_example/screens/rewarded_ad_screen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+
+import 'ad_state.dart';
+import 'screens/about_screen.dart';
+import 'screens/banner_ad_list_screen.dart';
+import 'screens/banner_ad_screen.dart';
+import 'screens/interstitial_ad_screen.dart';
+import 'screens/rewarded_ad_screen.dart';
 
 enum AdExample {
   banner,
   bannerAdList,
   interstitial,
   rewarded,
+  about,
 }
 
 extension on AdExample {
@@ -57,6 +60,8 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: (_) => InterstitialAdScreen());
           case 'rewarded':
             return MaterialPageRoute(builder: (_) => RewardedAdScreen());
+          case 'about':
+            return MaterialPageRoute(builder: (_) => AboutScreen());
 
           default:
             throw UnimplementedError('Route ${settings.name} not implemented');
