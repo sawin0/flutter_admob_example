@@ -8,21 +8,11 @@ class AdState {
 
   AdState(this.initialization);
 
-  String get appOpenAdUnitId =>
-      Platform.isAndroid ? appOpenAndroid : appOpeniOS;
-
   String get bannerAdUnitId => Platform.isAndroid ? bannerAndroid : banneriOS;
 
   String get interstitialAdUnitId =>
       Platform.isAndroid ? interstitialAndroid : interstitialiOS;
 
-  String get interstitialVideoAdUnitId =>
-      Platform.isAndroid ? interstitialVideoAndroid : interstitialVideoiOS;
-
   String get rewardedAdUnitId =>
       Platform.isAndroid ? rewardedAndroid : rewardediOS;
-
-  String get rewardedInterstitialAdUnitId => Platform.isAndroid
-      ? rewardedInterstitialAndroid
-      : rewardedInterstitialiOS;
 }

@@ -1,22 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admob_example/ad_state.dart';
-import 'package:flutter_admob_example/screens/app_open_ad_screen.dart';
 import 'package:flutter_admob_example/screens/banner_ad_list_screen.dart';
 import 'package:flutter_admob_example/screens/banner_ad_screen.dart';
 import 'package:flutter_admob_example/screens/interstitial_ad_screen.dart';
 import 'package:flutter_admob_example/screens/rewarded_ad_screen.dart';
-import 'package:flutter_admob_example/screens/rewarded_interstitial_ad_screen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 enum AdExample {
-  appOpen,
   banner,
-  interstitial,
   bannerAdList,
+  interstitial,
   rewarded,
-  rewardedInterstitial,
 }
 
 extension on AdExample {
@@ -53,19 +49,15 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: (settings) {
         switch (settings.name) {
-          case 'appOpen':
-            return MaterialPageRoute(builder: (_) => AppOpenAdScreen());
           case 'banner':
             return MaterialPageRoute(builder: (_) => BannerAdScreen());
-          case 'interstitial':
-            return MaterialPageRoute(builder: (_) => InterstitialAdScreen());
           case 'bannerAdList':
             return MaterialPageRoute(builder: (_) => BannerAdListScreen());
+          case 'interstitial':
+            return MaterialPageRoute(builder: (_) => InterstitialAdScreen());
           case 'rewarded':
             return MaterialPageRoute(builder: (_) => RewardedAdScreen());
-          case 'rewardedInterstitial':
-            return MaterialPageRoute(
-                builder: (_) => RewardedInterstitialAdScreen());
+
           default:
             throw UnimplementedError('Route ${settings.name} not implemented');
         }
